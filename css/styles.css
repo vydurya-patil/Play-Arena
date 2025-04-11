@@ -1,0 +1,59 @@
+/* General Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hero Section Overlay */
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  header .content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Card Image Consistency */
+  .card img {
+    height: 220px;
+    object-fit: cover;
+  }
+  
+  /* Activities Background */
+  #activities {
+    background-color: #f9f9f9;
+  }
+  
+  /* Footer */
+  footer {
+    font-size: 14px;
+  }
+
+  .navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('Homepage.jpg') center/cover no-repeat;
+    padding: 0 20px;
+  }
+  
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  }
+  
+  
