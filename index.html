@@ -1,121 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> YOUR PLAY ARENA</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Animate.css (for animations) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Animate.css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Progress Report</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">YOUR PLAY ARENA</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
+  <header>
+    <img src="wcb logo.png" alt="WCB Logo" class="logo">
+    <div class="header-info">
+      <h1>Worker Progress Report</h1>
+      <p>Claim No. <input type="text" value="20042047"> <input type="text" value="WP" class="short-input"></p>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header id="home" class="vh-100 d-flex align-items-center justify-content-center text-white text-center"
-          style="background: url('Homepage.jpg') no-repeat center center/cover; position: relative;">
-    <div class="overlay"></div>
-    <div class="content animate__animated animate__fadeIn">
-      <h1 class="display-4 fw-bold">Welcome to Your Arena</h1>
-      <p class="lead">Play. Compete. Enjoy.</p>
-      <a href="#activities" class="btn btn-warning btn-lg mt-3">Explore Now</a>
-    </div>
-</header>
-
-    <header class="hero d-flex align-items-center justify-content-center text-center text-white">
-        <div class="container">
-          <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Welcome to ArenaZone</h1>
-          <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Play. Compete. Celebrate.</p>
-          <a href="#activities" class="btn btn-warning mt-4 animate__animated animate__zoomIn animate__delay-2s">Explore Activities</a>
-        </div>
-      </header>
-      
   </header>
 
-  <!-- Activities Section -->
-  <section id="activities" class="py-5">
-    <div class="container text-center">
-      <h2 class="mb-4 fw-bold">Our Activities</h2>
-      <div class="row g-4">
+  <main>
+    <div class="title">
+      <p><a href="#">Madeleine Willson</a> provided the following updates in relation to their claim:</p>
+    </div>
 
-        <!-- Activity Card 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-lg animate__animated animate__zoomIn">
-            <img src="Football.jpg" class="card-img-top" alt="Football">
-            <div class="card-body">
-              <h5 class="card-title">Football</h5>
-              <p class="card-text">Join exciting football leagues and tournaments on our premium turf.</p>
-            </div>
+    <form id="progress-form">
+      <section>
+        <h2>Return to Work</h2>
+        <div class="form-group">
+          <label><strong>Select one:</strong></label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" id="no-time-off" onchange="toggleWorkOptions()"> I have not missed time from work</label>
+            <label><input type="checkbox" id="not-returned" onchange="toggleWorkOptions()"> I have not returned to work</label>
+            <label><input type="checkbox" id="returned-work" onchange="toggleWorkDate()"> I returned to work on:</label>
+            <input type="date" id="work-date" disabled>
           </div>
         </div>
 
-        <!-- Activity Card 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-lg animate__animated animate__zoomIn">
-            <img src="Basketball.jpg" class="card-img-top" alt="Basketball">
-            <div class="card-body">
-              <h5 class="card-title">Basketball</h5>
-              <p class="card-text">Enjoy slam dunks and fast breaks on our full-sized court.</p>
-            </div>
+        <!-- Recovery Section -->
+        <div id="recovery-section" style="display:none;">
+          <h2>Recovery</h2>
+
+          <div class="form-block">
+            <label><strong>Describe any treatment or therapy you are currently receiving:</strong></label>
+            <textarea placeholder="e.g., Physiotherapy twice a week, medication, etc."></textarea>
+          </div>
+
+          <div class="form-block">
+            <label><strong>Are there any barriers to your recovery?</strong></label>
+            <textarea placeholder="e.g., Pain management issues, transportation, etc."></textarea>
+          </div>
+
+          <div class="form-block">
+            <label><strong>Next scheduled medical appointment:</strong></label>
+            <input type="date">
+          </div>
+
+          <div class="form-block">
+            <label><strong>Name of health care provider:</strong></label>
+            <input type="text" placeholder="e.g., Dr. Smith">
           </div>
         </div>
 
-        <!-- Activity Card 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-lg animate__animated animate__zoomIn">
-            <img src="Badminton.jpg" class="card-img-top" alt="Badminton">
-            <div class="card-body">
-              <h5 class="card-title">Badminton</h5>
-              <p class="card-text">Smash your way to victory in our indoor badminton courts.</p>
-            </div>
+        <div class="form-group">
+          <label><strong>I am working:</strong></label>
+          <div class="checkbox-group">
+            <label><input type="checkbox"> Full duties, regular hours</label>
+            <label><input type="checkbox"> Full duties, reduced hours</label>
+            <label><input type="checkbox"> Modified duties, regular hours</label>
+            <label><input type="checkbox" checked> Modified duties, reduced hours</label>
+            <label><input type="checkbox"> Other: <input type="text"></label>
           </div>
         </div>
 
+        <div class="form-group">
+          <label><strong>My return to work is going:</strong></label>
+          <p><a href="#">Terrible. Testing Testing</a></p>
+        </div>
+
+        <div class="form-group">
+          <label><strong>I expect to return to work on:</strong></label>
+          <input type="date" value="2025-04-17">
+        </div>
+
+        <div class="form-group">
+          <label><strong>I have the following concerns about returning to work:</strong></label>
+          <textarea rows="4" placeholder="Enter your concerns..."></textarea>
+        </div>
+
+        <div class="form-group signature-row">
+          <div>
+            <label><strong>I was most recently in contact with:</strong></label>
+            <input type="text" placeholder="Name of employer contact">
+          </div>
+          <div>
+            <label><strong>on</strong></label>
+            <input type="date" value="2025-04-17">
+          </div>
+        </div>
+      </section>
+
+      <div class="form-actions">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact Section (Optional Placeholder) -->
-  <section id="contact" class="py-5 bg-dark text-white text-center">
-    <div class="container">
-      <h2 class="fw-bold">Get in Touch</h2>
-      <p>Email: Vyduryap777@gmail.com| Phone: +91 7411737409</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black text-white text-center py-3">
-    <p class="mb-0">© 2025 Your Arena. All rights reserved.</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
+    </form>
+  </main>
+  <script src="script.js"></script>
 </body>
+
 </html>
